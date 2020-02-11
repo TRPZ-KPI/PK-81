@@ -1,10 +1,30 @@
 package lab7;
 
+import lab4.Student;
+
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
-public class MySet implements Set {
+public class MySet implements Set<Student> {
+
+    // todo magic number + move creation to constructors
+    private Student[] students = new Student[15];
+
+    public MySet() {
+    }
+    public MySet(Student student) {
+    }
+
+    public MySet(Collection<Student> students) {
+
+    }
+
+    /**
+     * MY super method!!!
+     * @return cool value
+     */
     @Override
     public int size() {
         return 0;
@@ -31,7 +51,7 @@ public class MySet implements Set {
     }
 
     @Override
-    public boolean add(Object o) {
+    public boolean add(Student o) {
         return false;
     }
 
