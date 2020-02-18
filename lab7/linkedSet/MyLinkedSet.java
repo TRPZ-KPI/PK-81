@@ -1,44 +1,51 @@
-package lab7;
+package lab7.linkedSet;
 
 import lab4.Student;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Set;
 
-public class MySet implements Set<Student> {
+public class MyLinkedSet implements Set<Student> {
 
-    private static final int INITIAL_ELEMENTS_QUANTITY = 15;
+    private Node head;
+    private Node tail;
+    private int size;
 
-    // todo move creation to constructors
-    private Student[] elements = new Student[INITIAL_ELEMENTS_QUANTITY];
-
-    public MySet() {
-    }
-    public MySet(Student student) {
+    public MyLinkedSet() {
     }
 
-    public MySet(Collection<Student> students) {
+    public MyLinkedSet(Student student) {
+    }
+
+    public MyLinkedSet(Collection<Student> students) {
 
     }
 
     /**
      * MY super method!!!
+     *
      * @return cool value
      */
     @Override
     public int size() {
-        return 0;
+        return size;
     }
 
     @Override
     public boolean isEmpty() {
-        return false;
+        return size == 0;
     }
 
     @Override
     public boolean contains(Object o) {
+        Node currentNode = head;
+        while (currentNode != null) {
+            if (currentNode.getElement().equals(o)) {
+                return true;
+            }
+            currentNode = currentNode.getNext();
+        }
         return false;
     }
 
@@ -53,8 +60,17 @@ public class MySet implements Set<Student> {
     }
 
     @Override
-    public boolean add(Student o) {
-        return false;
+    public boolean add(Student element) {
+        Node newNode = new Node(element);
+
+        if (isEmpty()) {
+            head = tail = newNode;
+        } else {
+            tail.setNext(newNode);
+            tail = newNode;
+        }
+        size++;
+        return true;
     }
 
     @Override
