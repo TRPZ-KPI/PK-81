@@ -9,7 +9,7 @@ public class Main {
 
         Main myMain = new Main();
         System.out.println(myMain.toString());
-
+/hell
         MySet mySet = new MySet();
         MySet mySet2 = new MySet(new Student());
         MySet mySet3 = new MySet(new ArrayList<Student>());
