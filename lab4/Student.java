@@ -2,6 +2,8 @@ package lab4;
 
 import java.util.Objects;
 
+import lab8.NameException;
+
 public class Student {
     private String name;
     private String surname;
@@ -14,6 +16,19 @@ public class Student {
     }
 
     public Student() {
+    }
+
+    public Student(String name, String surname, String lastName, int age, int course) throws NameException {
+        if (name.length() == 0) {
+            throw new NameException(/*"Name can't be "*/);
+
+//            System.out.println("Name can't be empty.");
+        }
+        this.name = name;
+        this.surname = surname;
+        this.lastName = lastName;
+        this.age = age;
+        this.course = course;
     }
 
     public String getName() {

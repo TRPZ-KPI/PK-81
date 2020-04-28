@@ -1,6 +1,8 @@
 package lab7.linkedSet;
 
 import lab4.Student;
+import lab6.CorrespondenceStudent;
+import lab8.NameException;
 
 import java.util.Collection;
 import java.util.Iterator;
@@ -59,6 +61,12 @@ public class MyLinkedSet implements Set<Student> {
         return new Object[0];
     }
 
+    /**
+     *
+     * @param o
+     * @return
+     * @throws NameException no Oleksii allowed
+     */
     @Override
     public boolean add(Student element) {
         Node newNode = new Node(element);
@@ -75,7 +83,15 @@ public class MyLinkedSet implements Set<Student> {
 
     @Override
     public boolean remove(Object o) {
-        return false;
+        /*Object o2 = "";
+        String s = (String) o2;*/
+        if (o instanceof CorrespondenceStudent) {
+            throw new ClassCastException();
+        }
+        if (((Student)o).getName().equals("Oleksii")) {
+            throw new NameException("No Oleksii!");
+        }
+        throw new UnsupportedOperationException();
     }
 
     @Override

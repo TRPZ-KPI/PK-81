@@ -7,6 +7,8 @@ import java.util.ArrayList;
 public class Main {
     public static void main(String[] args) {
 
+        ArrayList arrayList;
+
         Main myMain = new Main();
         System.out.println(myMain.toString());
 
